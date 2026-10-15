@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} - 我的部落格</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.8;
+        }
+
+        .content {
+            margin-top: 30px;
+            white-space: pre-wrap;
+        }
+
+        a {
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <p><a href="{{ url_for('index') }}">← 回到首頁</a></p>
+
+    <h1>{{ post.title }}</h1>
+
+    <p>作者：{{ post.author }}</p>
+
+    <hr>
+
+    <div class="content">{{ post.content }}</div>
+
+</body>
+</html>

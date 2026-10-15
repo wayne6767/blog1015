@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的部落格</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.8;
+            background: #f7f7f7;
+        }
+
+        .post {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .post h2 a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .author {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>我的部落格</h1>
+
+    {% for post in posts %}
+        <div class="post">
+            <h2>
+                <a href="{{ url_for('post_detail', post_id=post.id) }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+
+            <p class="author">
+                作者：{{ post.author }}
+            </p>
+
+            <p>{{ post.content }}</p>
+        </div>
+    {% else %}
+        <p>目前沒有任何文章。</p>
+    {% endfor %}
+
+</body>
+</html>
